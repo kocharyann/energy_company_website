@@ -1,0 +1,1384 @@
+:root {
+    --color-bg: #f5f7fa;
+    --color-main: #0A2140;      /* темно-синий осн */
+    --color-accent: #2267B5;    /* синий акцент */
+    --color-light: #E8EEF5;     /* светлый фон блоков/карточек */
+    --color-border: #E5E7EB;    /* светлая граница */
+    --color-text: #111827;      /* основной текст */
+    --color-muted: #6B7280;     /* приглушённый текст */
+    --color-white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                 Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+                 sans-serif;
+    line-height: 1.5;
+    background-color: #11172f;  /*запасной фон, если картинка не загрузится*/
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.35), rgba(96, 165, 250, 0.25)), /*чтобы оттенок фона менять*/
+        url("../images/bg-energy.webp") center / cover fixed no-repeat;
+    color: var(--color-text);
+}
+
+/*сброс отступов*/
+h1, h2, h3, p {
+    margin: 0 0 1rem;
+}
+
+/*общ отступ*/
+section {
+    padding: 60px 20px;
+}
+
+main {
+    display: block;
+}
+
+/*выравнивание и ширина*/
+.about,
+.services,
+.documents,
+.partners,
+.request,
+.banner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#about,
+#services,
+#documents,
+#partners,
+#request,
+#contacts,
+#home {
+    scroll-margin-top: 100px;
+}
+
+/*ссылки*/
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*шапка и логотип*/
+ header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: transparent;   /* фон самой шапки не рисуем */
+}
+/*закругление шапки*/
+.header-inner {
+    max-width: 100%;
+    margin: 0;       
+    padding: 10px 40px;
+    background-color: var(--color-white);
+    border-radius: 0 0 16px 16px;       /* скругление по всем углам */
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-image {
+    width: 56px;           
+    height: 56px;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-main);
+    white-space: nowrap;   
+}
+/*menu*/
+/* Кнопка-иконка меню (бургер) — по умолчанию скрыта на десктопе */
+.nav-toggle {
+    display: none;            /* на больших экранах не показываем */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Внутри кнопки — три полоски */
+.nav-toggle span {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-main);
+    border-radius: 999px;
+    display: block;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-main);
+    border-radius: 999px;
+}
+
+.nav-toggle span::before {
+    top: -6px;    /* верхняя полоска */
+}
+
+.nav-toggle span::after {
+    top: 6px;     /* нижняя полоска */
+}
+
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-main);
+    position: relative;
+    padding-bottom: 2px;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--color-accent);
+    transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/*главная*/
+.banner {
+    position: relative;
+    padding: 120px 20px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    border-radius: 0 0 16px 16px;
+    background-image:
+        linear-gradient(135deg, rgba(10, 33, 64, 0.9), rgba(34, 103, 181, 0.8)),
+        url(../images/logo-energy2.webp);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;      
+    background-size: cover, 260px auto;       
+    color: var(--color-white);
+}
+
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.banner p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #e5e7eb;
+}
+
+/*кнопка*/
+.banner-cta {
+    position: absolute;
+    right: 40px;
+    bottom: 32px;
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 16px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.45);
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.banner-cta:hover {
+    background-color: #1d4f89;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.55);
+}
+
+
+
+
+/* Секция со счётчиком мировой энергии */
+.energy-stats {
+    padding: 32px 20px 40px;
+}
+
+.energy-stats__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 20px 24px;
+    border-radius: 16px;
+
+    background:
+        radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.16), transparent 55%),
+        linear-gradient(135deg, rgba(10, 33, 64, 0.96), rgba(34, 103, 181, 0.92));
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.55);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* мягкое свечение в углу для привлечения внимания */
+.energy-stats__inner::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.55), transparent 60%);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.energy-stats__info {
+    flex: 1 1 45%;
+    min-width: 0;
+}
+
+.energy-stats__eyebrow {
+    margin: 0 0 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #bfdbfe;
+    opacity: 0.9;
+}
+
+.energy-stats__title {
+    margin: 0 0 8px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #f9fafb;
+}
+
+.energy-stats__desc {
+    margin: 0;
+    font-size: 13px;
+    color: #e5e7eb;
+}
+
+/* Блок с числами */
+.energy-stats__metrics {
+    flex: 1 1 55%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.energy-stats__metric {
+    position: relative;
+    min-width: 210px;
+    padding: 10px 14px 10px 18px;
+
+    border-radius: 12px;
+    background-color: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.65);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.55);
+
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 2px;
+
+    overflow: hidden;
+}
+
+/* маленькая «лампочка» слева, которая мягко пульсирует */
+.energy-stats__metric::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #38bdf8;
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+    animation: energy-pulse 2s infinite;
+}
+
+.energy-stats__label {
+    margin-left: 14px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #cbd5f5;
+    opacity: 0.9;
+}
+
+.energy-stats__value {
+    margin-left: 14px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f9fafb;
+}
+
+.energy-stats__unit {
+    margin-left: 14px;
+    font-size: 12px;
+    color: #e5e7eb;
+    opacity: 0.85;
+}
+
+/* Источник данных — скромная сноска ПОД плашкой */
+.energy-stats__source {
+    max-width: 1200px;
+    margin: 10px auto 0;
+    padding: 0 8px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #cbd5e1;
+    opacity: 0.55;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Чтобы цифра в счётчике плавно «прыгала» при обновлении и моноширинно держала длину */
+#population-counter,
+#energy-counter {
+    font-variant-numeric: tabular-nums;
+    transition: opacity 0.15s ease;
+}
+
+/* Анимация мягкого пульса для индикатора */
+@keyframes energy-pulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+        opacity: 1;
+    }
+}
+
+
+
+
+/*о компании*/
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    text-align: center;
+}
+
+/*текст ниже*/
+.about p {
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    color: #e5e7eb;
+}
+
+/*наши преимущества*/
+.about h3 {
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.about-list {
+    list-style: none;           
+    margin: 0.5rem auto 0;      
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;            
+    justify-content: center;    
+    gap: 12px;                  
+}
+
+/*плашки*/
+.about-list li {
+    background-color: rgba(34, 103, 181, 0.65);  
+    color: var(--color-white);
+    border-radius: 16px;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: normal;
+    text-align: center;
+    max-width: 260px;      
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.35);
+
+    display: inline-flex;
+    align-items: center;
+}
+
+.about-list::before,
+.about-list li::before {
+    content: none;
+}
+
+.about-list li:hover {
+    color: #f9fafb;
+    transition: color 0.15s ease;
+}
+
+/*услуги*/
+.services {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+}
+
+.services h2 {
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+    color: var(--color-main);
+    text-align: center;
+}
+
+.services-list {
+    list-style: none;
+    margin: 0;
+    margin-top: 2rem;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* более крупные плитки */
+    gap: 20px;
+    position: relative;
+}
+
+/*иконка услуги*/
+.services-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+
+    border-radius: 18px;
+    padding: 8px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #dbeafe);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
+
+    object-fit: contain;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+/* карточка услуги */
+.services-list li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+
+    padding: 22px 24px;
+    border-radius: 24px;
+    background-color: #eef2f7;                
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--color-main);
+
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    overflow: visible;
+    z-index: 1;
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.2s ease,
+        transform 0.18s ease;         
+}
+
+.services-list li::before {
+    content: none;
+}
+
+.services-list li:hover .services-icon,
+.services-list li:active .services-icon,
+.services-list li:focus-visible .services-icon{
+    transform: scale(1.03);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.35);
+    filter: brightness(1.05);
+}
+
+.services-list li:hover,
+.services-list li:active,
+.services-list li:focus-visible {
+    background: linear-gradient(135deg, #2267B5, #0A2140); /* можно заменить на синий градиент */
+    color: #ffffff;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.3);
+    transform: translateY(-3px);
+    z-index: 20;
+}
+
+/* то же состояние, но по классу (для мобил) */
+.services-list li.service-open {
+    background: linear-gradient(135deg, #2267B5, #0A2140);
+    color: #ffffff;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.3);
+    transform: translateY(-3px);
+    z-index: 20;
+}
+
+.services-list li.service-open .services-icon {
+    transform: scale(1.03);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.35);
+    filter: brightness(1.05);
+}
+
+.services-list li.service-open .service-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -20px);
+}
+
+/*описание услуг*/
+/* всплывающее окно с подробным описанием - снизу карточки */
+.service-tooltip {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 0px); /* центрируем и чуть отступаем вниз */
+
+    width: calc(100% + 40px);   /* немного шире карточки */
+    max-width: 420px;
+    max-height: 260px;
+
+    padding: 14px 16px;
+    border-radius: 18px;
+    background-color: #ffffff;
+    color: var(--color-main);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.22);
+
+    display: block;          /* всегда есть, но */
+    opacity: 0;              /* невидимо */
+    pointer-events: none;    /* не мешает hover */
+    overflow: auto;
+
+    z-index: 100;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* «хвостик» сверху по центру */
+.service-tooltip::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+/* показываем окно при наведении */
+.services-list li:hover .service-tooltip,
+.services-list li:active .service-tooltip,
+.services-list li:focus-visible .service-tooltip{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -20px); /* чуть «выплывает» вниз */
+}
+
+
+/*документы*/
+.documents {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    margin-top: 32px; 
+    text-align: center
+}
+
+.documents h2 {
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+    color: var(--color-main);
+}
+
+.documents-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.doc-link {
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--color-main);
+    text-decoration: none;
+}
+
+.doc-link:hover {
+    text-decoration: underline;
+    color: var(--color-accent);
+}
+
+.documents-list li {
+    background-color: var(--color-light);
+    border-radius: 12px;
+    padding: 16px;
+    font-weight: 600;
+    color: var(--color-main);
+}
+
+.doc-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--color-muted);
+}
+
+/*партнеры*/
+.partners {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 40px 24px 44px;
+
+    background-color: rgba(10, 33, 64, 0.55);   /* как у формы */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: var(--color-white);
+    text-align: center
+}
+
+.partners h2 {
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+}
+
+.partners p {
+    max-width: 700px;
+    margin: 0.5rem auto 0;
+    color: var(--color-white);
+}
+
+/*логотипы партнёров*/
+/* Лента партнёров — горизонтальная карусель */
+.partners-list {
+    margin-top: 2rem;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+
+    overflow-x: auto; 
+    overflow-y: visible;                 
+    scroll-snap-type: x mandatory;     /* «защёлкивание» карточек */
+    -webkit-overflow-scrolling: touch; /* плавный свайп на iOS */
+    padding: 16px 0 16px;
+    scrollbar-width: none; /* Firefox */
+}
+
+.partners-list::-webkit-scrollbar {
+    display: none;                        /* скрываем полосу в Chrome/Safari (по желанию) */
+}
+
+/* Одна карточка партнёра */
+.partner-card {
+    flex: 0 0 calc(100% / 3);            /* 3 партнёра на экран */
+    padding: 18px 22px;
+    min-height: 100px;
+
+    border-radius: 16px;                 /* НЕ овалы, как остальные карточки на сайте */
+    background: linear-gradient(135deg, #ffffff, #e5efff);
+    border: 1px solid rgba(34, 103, 181, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: var(--color-main);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    word-break: break-word;
+
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
+    scroll-snap-align: start;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        border-color 0.15s ease,
+        background-color 0.15s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* hover без сдвига вверх, только лёгкое увеличение и усиление акцента */
+.partner-card:hover {
+    transform: scale(1.03);              /* без translateY — ничего не «съедается» сверху */
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.24);
+    border-color: rgba(34, 103, 181, 0.55);
+    background: linear-gradient(135deg, #ffffff, #dbeafe);
+    z-index: 2;
+}
+
+.partners-list::-webkit-scrollbar {
+    display: none;
+}
+
+.partners-carousel {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.partners-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(15, 23, 42, 0.85);
+    color: var(--color-white);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.5);
+    outline: none;
+
+    transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    
+    z-index: 30;
+}
+
+.partners-arrow:hover {
+    background-color: rgba(34, 103, 181, 0.95);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.6);
+}
+
+.partners-arrow--prev {
+    left: 8px;
+}
+
+.partners-arrow--next {
+    right: 8px;
+}
+
+/*форма*/
+.request {
+    margin-top: 40px;
+    padding: 60px 20px 80px;
+}
+.request-card {
+    max-width: 780px;
+    margin: 0 auto;
+    background-color: rgba(10, 33, 64, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); 
+    color: var(--color-white);
+    border-radius: 16px;
+    padding: 32px 24px 32px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.request-card h2 {
+    font-size: 28px;
+    margin-bottom: 0.75rem;
+}
+.request-subtitle {
+    max-width: 600px;
+    color: #d1d5db;
+}
+
+.form-status {
+    margin-bottom: 1rem;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none; /* по умолчанию скрыто */
+}
+
+.form-status--success {
+    background-color: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.8);
+    color: #bbf7d0;
+}
+
+.form-status--error {
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.8);
+    color: #fecaca;
+}
+
+.request-form .form-group--full,
+.form-consent, 
+.form-note,
+.form-hp,
+.request-form button {
+    grid-column: 1 / -1;
+}
+
+.request-form {
+    margin-top: 1.5rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #e5e7eb;
+}
+
+.form-consent input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.form-consent a {
+    color: #dbeafe;
+    text-decoration: underline;
+}
+
+/* Сообщение об ошибке: появляется под галочкой, если пользователь забыл согласие */
+.form-consent-error {
+    margin: -2px 0 0;
+    padding: 8px 12px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #fecaca;
+    background-color: rgba(220, 38, 38, 0.18);
+    border-left: 3px solid #f87171;
+    border-radius: 6px;
+}
+
+/* Подсветка чекбокса в состоянии ошибки */
+.form-consent.has-error input {
+    outline: 2px solid #f87171;
+    outline-offset: 2px;
+}
+
+.form-note {
+    margin: -4px 0 0;
+    font-size: 12px;
+    color: #d1d5db;
+}
+
+.footer-note {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+
+.request-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.request-form .form-group--full {
+    grid-column: 1 / -1;
+}
+
+.form-group--checkbox {
+    margin-top: 4px;
+}
+.form-group--hidden {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+}
+.checkbox-label input {
+    margin-top: 4px;
+}
+.checkbox-label span {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #e5e7eb;
+}
+
+.request-form label {
+    font-size: 14px;
+    color: #e5e7eb;
+}
+.request-form input,
+.request-form textarea {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(209, 213, 219, 0.85); 
+    font: inherit;
+    outline: none;
+    line-height: 1.4;
+
+    background-color: transparent;   
+    color: #f9fafb;                 
+}
+.request-form input::placeholder,
+.request-form textarea::placeholder {
+    color: rgba(229, 231, 235, 0.7);
+}
+.request-form input:focus,
+.request-form textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(34, 103, 181, 0.35);
+}
+.request-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.request-form button {
+    margin-top: 8px;
+    grid-column: 1 / -1;
+    justify-self: flex-start;
+
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.request-form button:hover {
+    background-color: #1d4f89;
+    transform: translateY(-1px);
+}
+
+/*футер*/
+footer {
+    background-color: #050F1F;
+    color: #e5e7eb;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0.25rem 0;
+}
+
+footer a {
+    color: #d1e3ff;
+}
+
+/* ========== ПЛАНШЕТ / МОБИЛЬНЫЕ (до 900px) ========== */
+@media (max-width: 900px) {
+
+    .header-inner {
+        margin: 0;
+        padding: 10px 16px;
+        border-radius: 0 0 14px 14px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        position: relative;
+    }
+
+    .logo-image {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* показываем кнопку-иконку на мобильных */
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 44px;              /* размер кликабельной зоны */
+        height: 44px;
+        padding: 0;               /* без лишних отступов */
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        margin-left: auto;        /* всегда прижат к правому краю */
+    }
+
+
+    /* ВЫПАДАЮЩЕЕ МЕНЮ */
+    nav ul {
+        position: absolute;
+        top: 100%;
+        right: 16px;
+        margin-top: 10px;
+
+        padding: 12px 18px;                     /* меню больше */
+        min-width: 210px;                       /* пошире */
+        background-color: rgba(189, 196, 213, 0.92); /* слегка прозрачное */
+        border-radius: 16px;
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.35);
+
+        list-style: none;
+        display: none;                          /* скрыто по умолчанию */
+        flex-direction: column;
+        gap: 10px;
+        z-index: 200;
+    }
+
+    nav ul li a {
+        font-size: 15px;                        /* крупнее текст */
+        font-weight: 500;
+        color: var(--color-main);
+        padding: 4px 0;
+    }
+
+    /* при открытом меню (класс nav-open на .header-inner) показываем список */
+    .header-inner.nav-open nav ul {
+        display: flex;
+    }
+
+    /* Баннер чуть компактнее */
+    .banner {
+        padding: 80px 16px 60px;
+        margin-bottom: 24px;
+        border-radius: 0 0 12px 12px;
+        background-size: cover, 200px auto;
+    }
+
+    .banner h1 {
+        font-size: 26px;
+        margin-bottom: 0.5rem;
+    }
+
+    .banner p {
+        font-size: 15px;
+    }
+
+    /* кнопка под текстом по центру */
+    .banner-cta {
+        position: static;
+        display: inline-block;
+        margin: 1.2rem auto 0;
+    }
+
+
+    .energy-stats {
+        padding: 24px 16px 32px;
+    }
+
+    .energy-stats__inner {
+        padding: 18px 16px 22px;
+        border-radius: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    #about,
+    #services,
+    #documents,
+    #partners,
+    #request,
+    #contacts,
+    #home {
+        scroll-margin-top: 80px;
+    }
+
+    .energy-stats__metrics {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .energy-stats__metric {
+        width: 100%;
+    }
+
+    /* На мобиле сноска ещё мельче и компактнее */
+    .energy-stats__source {
+        margin-top: 8px;
+        font-size: 10px;
+        line-height: 1.45;
+        opacity: 0.5;
+    }
+
+    /* 2) Услуги: на планшетах/мобилках описание внутри карточки, без всплывающего окна */
+    .services-list {
+        grid-template-columns: 1fr;   
+        gap: 16px;
+    }
+
+    .services-list li {
+        padding: 18px 16px;
+    }
+
+    .services-icon {
+        width: 44px;
+        height: 44px;
+    }
+    .services-list li {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* Мобильное поведение услуг — описание скрыто по умолчанию */
+    .services-list li .service-tooltip {
+        position: static;
+        width: 100%;
+        max-width: none;
+        max-height: 0;
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: none;
+        box-shadow: none;
+        flex-basis: 100%;
+        overflow: hidden;
+        transition: max-height 0.3s ease,
+                    opacity 0.2s ease,
+                    margin-top 0.2s ease,
+                    padding 0.2s ease;
+    }
+
+    .services-list li .service-tooltip::before {
+        display: none;
+    }
+
+    /* Hover на мобильном не должен раскрывать описание — только тап */
+    .services-list li:hover .service-tooltip,
+    .services-list li:active .service-tooltip,
+    .services-list li:focus-visible .service-tooltip {
+        transform: none;
+    }
+
+    /* Раскрытие по тапу — переопределяем для мобильной версии */
+    .services-list li.service-open .service-tooltip {
+        max-height: 400px;
+        opacity: 1;
+        pointer-events: auto;
+        margin-top: 12px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        transform: none;
+    }
+
+
+    /* до 900px — по 2 партнёра */
+    .partner-card {
+        flex: 0 0 50%;
+    }
+
+    /* Форма в одну колонку */
+    .request-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .request-form .form-group--full,
+    .request-form button {
+        grid-column: 1 / -1;
+    }
+
+    .request-form button {
+        width: 100%;
+        justify-self: stretch;
+        text-align: center;
+    }
+
+
+    /* фон без fixed для плавной прокрутки */
+    body {
+        background-attachment: scroll;
+    }
+}
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ (до 600px) ========== */
+@media (max-width: 600px) {
+
+    section {
+        padding: 40px 16px;
+    }
+
+    .about,
+    .services,
+    .documents,
+    .partners,
+    .request,
+    .banner {
+        max-width: 100%;
+    }
+
+
+    /* более плотный, но без fixed фон для мобилы */
+    body {
+        background:
+            linear-gradient(135deg, rgba(15, 23, 42, 0.18), rgba(96, 165, 250, 0.15)),
+            url("../images/bg-energy-mobile.webp") center 30%/ cover no-repeat;
+        background-attachment: scroll;
+    }
+
+    /* Наши преимущества — удобнее читать в стеке */
+    .about-list {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .about-list li {
+        max-width: 100%;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Услуги и документы по одной карточке в ряд */
+    .services-list,
+    .documents-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Карточка занимает 88% — видны края соседних, понятно что можно листать */
+    .partner-card {
+        flex: 0 0 88%;
+    }
+
+    /* Стрелки на мобильном — компактнее и ближе к краям */
+    .partners-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .partners-arrow--prev {
+        left: 4px;
+    }
+
+    .partners-arrow--next {
+        right: 4px;
+    }
+
+    /* Боковые отступы у списка — чтобы первая и последняя карточки не прижимались к краю и стрелки не наезжали на них */
+    .partners-list {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .services-list li,
+    .documents-list li {
+        padding: 14px 12px;
+    }
+
+    /* Форма заявки */
+    .request {
+        padding: 32px 16px 48px;
+        margin-top: 24px;
+    }
+
+    .request-card {
+        padding: 20px 16px 24px;
+        border-radius: 12px;
+    }
+
+    /* Футер */
+    footer {
+        padding: 20px 16px;
+        font-size: 13px;
+    }
+}
