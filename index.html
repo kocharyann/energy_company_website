@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ООО «Энергетическая компания»</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="ООО «Энергетическая компания» — обслуживание, реконструкция и ремонт котельных и тепловых пунктов в Краснодарском крае.">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="images/logo-energy.webp" alt="ООО «Энергетическая компания»" class="logo-image">
+                <span class="logo-text">ООО «Энергетическая компания»</span>
+            </div>
+            <!--menu-->
+            <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-controls="main-nav" aria-expanded="false"><span></span></button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#partners">Партнеры</a></li>
+                    <li><a href="#documents">Документы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="banner" aria-labelledby="home-title">
+            <div class="banner-content">
+                <h1 id="home-title">Надёжное обслуживание котельных</h1>
+                <p>Безопасность, эффективность и качество для вашего предприятия</p>
+                <a href="#request" class="banner-cta">Оставить заявку</a>
+            </div>
+        </section>
+
+        <section class="energy-stats" aria-label="Мировое потребление энергии">
+            <div class="energy-stats__inner">
+                <div class="energy-stats__info">
+                    <p class="energy-stats__eyebrow">Энергия - основа современного мира</p>
+                    <h2 class="energy-stats__title">Потребность растет каждый день.<br>
+                         Наша задача - обеспечить стабильное энергоснабжение.</h2>
+                    <p class="energy-stats__desc"></p>
+                </div>
+
+                <div class="energy-stats__metrics">
+                    <div class="energy-stats__metric">
+                        <span class="energy-stats__label">Население Земли</span>
+                        <span class="energy-stats__value" id="population-counter" aria-live="polite">—</span>
+                        <span class="energy-stats__unit">человек</span>
+                    </div>
+
+                    <div class="energy-stats__metric">
+                        <span class="energy-stats__label">Сегодня в мире потреблено энергии</span>
+                        <span class="energy-stats__value" id="energy-counter" aria-live="polite">—</span>
+                        <span class="energy-stats__unit">кВт·ч</span>
+                    </div>
+                </div>
+            </div>
+            <p class="energy-stats__source">
+                По данным ООН и Международного энергетического агентства (IEA), 2024
+            </p>
+        </section>
+
+
+        <section id="about" class="about">
+            <h2>О компании</h2>
+            <p>ООО «Энергетическая компания» специализируется на эксплуатации, 
+            обслуживании и ремонте котельных и тепловых пунктов в Краснодарском крае</p>
+            <h3>Наши преимущества:</h3>
+            <ul class="about-list">
+                <li>С 2002 года в сфере эксплуатации котельных</li>
+                <li>Индивидуальный подход к каждому клиенту</li>
+                <li>Лицензия Ростехнадзора на работу со взрывоопасными объектами</li>
+                <li>Квалифицированный персонал и многолетний опыт</li>
+            </ul>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Услуги</h2>
+            <ul class="services-list">
+                <li tabindex="0">
+                    <img src="images/service-maintenance.webp"
+                    alt="Сервисное обслуживание котельных"
+                    class="services-icon">
+                    Сервисное обслуживание котельных
+                    <span class="service-tooltip">ТО автоматики котлов, тепломеханического оборудования, 
+                        систем безопасности загазованности. Регулярная проверка и настройка оборудования для предотвращения аварий. 
+                        Организация метрологической поверки средств измерений на котельных</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-reconstruction.webp"
+                    alt="Реконструкция котельных"
+                    class="services-icon">
+                    Реконструкция котельных
+                    <span class="service-tooltip">Модернизация оборудования котельных для повышения эффективности и безопасности</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-commissioning.webp"
+                    alt="ПНР котельных"
+                    class="services-icon">
+                    ПНР котельных
+                    <span class="service-tooltip">Пусконаладочные работы перед вводом в эксплуатацию котельной, а также промежуточные режимно-наладочные испытания котлоагрегатов</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-water-treatment.webp"
+                    alt="Водоподготовка котельных"
+                    class="services-icon">
+                    Водоподготовка котельных
+                    <span class="service-tooltip">Настройка и наладка режима работы установок химической водоподготовки</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-repair.webp"
+                    alt="Ремонт котельного оборудования"
+                    class="services-icon">
+                    Ремонт котельного оборудования
+                    <span class="service-tooltip">Текущий и капитальный ремонт вспомогательного оборудования котельных</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-control.webp"
+                    alt="Производственный контроль котельных"
+                    class="services-icon">
+                    Эксплуатация котельных
+                    <span class="service-tooltip">Контроль соблюдения норм промышленной безопасности и организация бесперебойной и надежной работы оборудования</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-teo.webp"
+                    alt="ТЭО"
+                    class="services-icon">
+                    ТЭО
+                    <span class="service-tooltip">Технико-экономическое обоснование проектов и модернизаций котельных</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-energo-audit.webp"
+                    alt="Энергоаудит"
+                    class="services-icon">
+                    Энергоаудит
+                    <span class="service-tooltip">Анализ расхода энергетических ресурсов и разработка рекомендаций по повышению энергоэффективности</span>
+                </li>
+                <li tabindex="0">
+                    <img src="images/service-heat-points.webp"
+                    alt="Тепловые пункты"
+                    class="services-icon">
+                    Тепловые пункты
+                    <span class="service-tooltip">Эксплуатация и техническое обслуживание тепловых пунктов для бесперебойного теплоснабжения</span>
+                </li>
+            </ul>
+         </section>
+
+        <section id="documents" class="documents">
+            <h2>Документы</h2>
+            <ul class="documents-list">
+                <li>
+                    <a href="docs/licenziya-OPO.pdf" target="_blank" rel="noopener" class="doc-link">Лицензия ОПО</a>
+                    <span class="doc-note">Лицензия Ростехнадзора на работу с опасными производственными объектами</span>
+                </li>
+                <li>
+                    <a href="docs/vypiska-SRO.pdf" target="_blank" rel="noopener" class="doc-link">Выписка СРО</a>
+                    <span class="doc-note">Подтверждение членства в саморегулируемой организации</span>
+                </li>
+            </ul>
+        </section>
+
+
+        <section id="partners" class="partners">
+            <h2>Наши партнёры</h2>
+            <div class="partners-carousel">
+                <button class="partners-arrow partners-arrow--prev"
+                    type="button"
+                    aria-label="Показать предыдущих партнеров">
+                    &#10094;
+                </button>
+                <div class="partners-list">
+                    <div class="partner-card">АО «Тандер»</div>
+                    <div class="partner-card">АО «Почта России»</div>
+                    <div class="partner-card">ООО «Объединенная тепловая компания»</div>
+                    <div class="partner-card">ООО «Пластуновское ЖКХ»</div>
+                     <div class="partner-card">ООО «КубаньТеплоИнжиниринг»</div>
+                    <div class="partner-card">ООО УК «Мега»</div>
+                    <div class="partner-card">МУП КТТУ</div>
+                    <div class="partner-card">ГБУ ДО КК ЭБЦ</div>
+                    <div class="partner-card">ККО ПП КПРФ</div>
+                    <div class="partner-card">ООО «Юг-Арт»</div>
+                    <div class="partner-card">АО «Краснодарский хлебозавод №6»</div>
+                    <div class="partner-card">ООО Тепличный комплекс «Зеленая линия»</div>
+                    <div class="partner-card">ООО ТД «ПИНО»</div>
+                    <div class="partner-card">ООО «Южный холдинг»</div>
+                    <div class="partner-card">ООО «Кофе ОМНИ»</div>
+                    <div class="partner-card">ООО «Нефтегазтехнология-Ресурс»</div>
+                    <div class="partner-card">ООО Агентство недвижимости «Модус»</div>
+                </div>
+                <button class="partners-arrow partners-arrow--next"
+                    type="button"
+                    aria-label="Показать следующих партнеров">
+                    &#10095;
+                </button>
+            </div>
+        </section>
+
+        <section id="request" class="request">
+            <div class="request-card">
+                <h2>Оставить заявку</h2>
+                <p class="request-subtitle">Оставьте свои контакты и кратко опишите задачу. Мы свяжемся с вами для уточнения деталей.</p>
+                <div class="form-status" id="form-status" aria-live="polite"></div>
+                <form class="request-form" method="post" action="send.php" accept-charset="UTF-8">
+                    <div class="form-group">
+                        <label for="name">Имя*</label>
+                        <input id="name" type="text" name="name" placeholder="Ваше имя" autocomplete="name" minlength="2" maxlength="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон*</label>
+                        <input id="phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" maxlength="30" pattern="[0-9+()\-\s]{10,30}" required>
+                    </div>
+                    <div class="form-group form-group--full">
+                        <label for="email">E-mail*</label>
+                        <input id="email" type="email" name="email" placeholder="example@mail.ru" autocomplete="email" maxlength="150" required>
+                    </div>
+                    <div class="form-group form-group--full">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" placeholder="Кратко опишите ваш запрос" maxlength="1000"></textarea>
+                    </div>
+                    <div class="form-group form-hp" aria-hidden="true">
+                        <label for="website">Не заполняйте это поле</label>
+                        <input id="website" type="text" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <label class="form-consent">
+                        <input type="checkbox" id="consent-checkbox" name="consent" value="1">
+                        <span>
+                            Я согласен(на) на обработку персональных данных и ознакомлен(а) с 
+                            <a href="docs/politika-PD.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a>
+                        </span>
+                    </label>
+                    <p class="form-consent-error" id="consent-error" hidden>
+                        Чтобы отправить заявку, подтвердите согласие на обработку персональных данных
+                    </p>
+                    <p class="form-note">
+                        После отправки заявки данные используются только для обратной связи по вашему запросу. 
+                    </p>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+         </section>
+    </main>
+
+    <footer id="contacts">
+        <h2>Контакты</h2>
+        <address>
+        <p>Краснодар, ул. Монтажников, 12</p>
+        <p>Телефон: <a href="tel:+78619922110">+7 (861) 99-22-110</a></p>
+        <p>E-mail: <a href="mailto:eneco@mail.ru">eneco@mail.ru</a></p>
+        </address>
+        <p>© 2026 ООО «Энергетическая компания». Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle   = document.querySelector('.nav-toggle');
+            const headerInner = document.querySelector('.header-inner');
+            const nav         = document.getElementById('main-nav');
+
+            if (navToggle && headerInner && nav) {
+                // открыть/закрыть меню по кнопке-бургеру
+                navToggle.addEventListener('click', function () {
+                    const isOpen = headerInner.classList.toggle('nav-open');
+                    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+
+                // закрыть меню после выбора пункта
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        headerInner.classList.remove('nav-open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+
+                document.addEventListener('click', function (event) {
+                    if (!headerInner.contains(event.target)) {
+                        headerInner.classList.remove('nav-open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape') {
+                        headerInner.classList.remove('nav-open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+             // Стрелки для карусели партнёров
+            const partnersTrack = document.querySelector('.partners-list');
+            const partnersPrev  = document.querySelector('.partners-arrow--prev');
+            const partnersNext  = document.querySelector('.partners-arrow--next');
+
+            if (partnersTrack && partnersPrev && partnersNext) {
+                // шаг прокрутки ≈ ширина видимой области
+                const getStep = () => partnersTrack.clientWidth * 0.9;
+
+                partnersPrev.addEventListener('click', () => {
+                    partnersTrack.scrollBy({
+                        left: -getStep(),
+                        behavior: 'smooth'
+                    });
+                });
+
+                partnersNext.addEventListener('click', () => {
+                    partnersTrack.scrollBy({
+                        left: getStep(),
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        
+            // сообщение о результате отправки формы
+            const params = new URLSearchParams(window.location.search);
+            const status = params.get('status');
+            const statusBox = document.getElementById('form-status');
+
+            if (statusBox && status) {
+                const messages = {
+                    success: {
+                        text: 'Спасибо! Ваша заявка отправлена.',
+                        className: 'form-status--success'
+                    },
+                    validation: {
+                        text: 'Проверьте обязательные поля и согласие на обработку персональных данных.',
+                        className: 'form-status--error'
+                    },
+                    spam: {
+                        text: 'Отправка отклонена.',
+                        className: 'form-status--error'
+                    },
+                    rate_limit: {
+                        text: 'Слишком много заявок с вашего адреса. Попробуйте через несколько минут или свяжитесь по телефону.',
+                        className: 'form-status--error'
+                    },
+                    error: {
+                        text: 'Не удалось отправить заявку. Попробуйте позже или свяжитесь по телефону.',
+                        className: 'form-status--error'
+                    }
+                };
+
+
+                const current = messages[status] ?? messages.error;
+
+                statusBox.style.display = 'block';
+                statusBox.textContent = current.text;
+                statusBox.classList.remove('form-status--success', 'form-status--error');
+                statusBox.classList.add(current.className);
+
+                history.replaceState(null, '', window.location.pathname + window.location.hash);
+            }
+
+            // Раскрытие услуг по тапу (только на мобильной версии — ≤900px)
+            const serviceItems = document.querySelectorAll('.services-list li');
+            const isMobileServicesView = () => window.matchMedia('(max-width: 900px)').matches;
+
+            serviceItems.forEach((item) => {
+                item.addEventListener('click', () => {
+                    // На десктопе работает hover, JS не нужен
+                    if (!isMobileServicesView()) return;
+
+                    const wasOpen = item.classList.contains('service-open');
+
+                    // Закрываем все остальные карточки
+                    serviceItems.forEach((other) => other.classList.remove('service-open'));
+
+                    // Если кликнули по уже открытой — закрываем; иначе открываем эту
+                    if (!wasOpen) {
+                        item.classList.add('service-open');
+                    }
+                });
+
+                // Поддержка клавиатуры — Enter и Space раскрывают/закрывают
+                item.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        item.click();
+                    }
+                });
+            });
+
+            // Тап вне любой карточки услуг закрывает все открытые
+            document.addEventListener('click', (event) => {
+                if (!isMobileServicesView()) return;
+                if (event.target.closest('.services-list li')) return;
+                serviceItems.forEach((item) => item.classList.remove('service-open'));
+            });
+
+            // Escape закрывает любые открытые карточки услуг
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    serviceItems.forEach((item) => item.classList.remove('service-open'));
+                }
+            });
+
+            // При расширении окна с мобильного до десктопа — убираем «застрявшие» классы
+            window.addEventListener('resize', () => {
+                if (!isMobileServicesView()) {
+                    serviceItems.forEach((item) => item.classList.remove('service-open'));
+                }
+            });
+        
+
+            const populationEl = document.getElementById('population-counter');
+            const energyEl = document.getElementById('energy-counter');
+
+            if (populationEl && energyEl) {
+                const POPULATION_AT_YEAR_START = 8_170_000_000;   
+                const POPULATION_GROWTH_PER_YEAR = 70_000_000;
+                const ENERGY_PER_DAY_KWH = 83_500_000_000;
+
+                const yearStart = new Date(Date.UTC(2026, 0, 1, 0, 0, 0));
+                const secondsPerYear = 365.25 * 24 * 60 * 60;
+                const populationGrowthPerSecond = POPULATION_GROWTH_PER_YEAR / secondsPerYear;
+                const energyPerSecond = ENERGY_PER_DAY_KWH / (24 * 60 * 60);
+                const numberFormatter = new Intl.NumberFormat('ru-RU', {
+                    maximumFractionDigits: 0
+            });
+            const formatNumber = (value) => numberFormatter.format(Math.floor(value));
+            const updateCounters = () => {
+                const now = new Date();
+                // Население
+                const secondsSinceYearStart = (now - yearStart) / 1000;
+                const currentPopulation =
+                    POPULATION_AT_YEAR_START + secondsSinceYearStart * populationGrowthPerSecond;
+                populationEl.textContent = formatNumber(currentPopulation);
+                // Энергия за сегодня (UTC)
+                const startOfTodayUTC = new Date(Date.UTC(
+                    now.getUTCFullYear(),
+                    now.getUTCMonth(),
+                    now.getUTCDate()
+                ));
+                const secondsSinceMidnight = (now - startOfTodayUTC) / 1000;
+                const energyToday = secondsSinceMidnight * energyPerSecond;
+                energyEl.textContent = formatNumber(energyToday);
+            };
+
+                            // Первое значение — сразу
+                updateCounters();
+                // И дальше каждую секунду
+                setInterval(updateCounters, 1000);
+            }
+
+            const requestForm = document.querySelector('.request-form');
+            const consentCheckbox = document.getElementById('consent-checkbox');
+            const consentError = document.getElementById('consent-error');
+            const consentLabel = consentCheckbox ? consentCheckbox.closest('.form-consent') : null;
+
+            if (requestForm && consentCheckbox && consentError && consentLabel) {
+                // Перехватываем отправку формы
+                requestForm.addEventListener('submit', (event) => {
+                    if (!consentCheckbox.checked) {
+                        // Останавливаем отправку
+                        event.preventDefault();
+
+                        // Показываем сообщение и подсвечиваем чекбокс
+                        consentError.hidden = false;
+                        consentLabel.classList.add('has-error');
+
+                        // Прокручиваем к ошибке плавно (для длинных форм важно)
+                        consentError.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+                });
+
+                // Как только пользователь поставил галочку — убираем сообщение
+                consentCheckbox.addEventListener('change', () => {
+                    if (consentCheckbox.checked) {
+                        consentError.hidden = true;
+                        consentLabel.classList.remove('has-error');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
