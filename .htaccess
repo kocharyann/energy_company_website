@@ -1,0 +1,66 @@
+# ── Защита служебных файлов ────────────────────────────────────────────────
+# Запрещаем прямой доступ к конфигу, .htaccess и другим файлам с префиксом точки
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<Files "config.php">
+    Require all denied
+</Files>
+
+
+# ── Кэширование статики (для скорости загрузки сайта) ──────────────────────
+# Браузеры будут запоминать картинки/CSS/JS на длительный срок,
+# чтобы не качать их заново при каждом посещении
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Картинки кэшируются на 30 дней
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png  "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+
+    # Шрифты — на полгода
+    ExpiresByType font/woff2 "access plus 180 days"
+
+    # CSS и JS — на 7 дней (часто меняются)
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+
+    # PDF — на 30 дней
+    ExpiresByType application/pdf "access plus 30 days"
+
+    # HTML — без кэширования (всегда свежий)
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+
+# ── Сжатие на лету (gzip) ──────────────────────────────────────────────────
+# Apache на лету сжимает текстовые файлы перед отправкой в браузер.
+# Картинки (.webp, .jpg) уже сжаты, их повторно не трогаем.
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+
+# ── Базовые HTTP-заголовки безопасности ────────────────────────────────────
+<IfModule mod_headers.c>
+    # Защита от MIME-sniffing атак
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Защита от встраивания сайта в чужие фреймы (clickjacking)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Управление тем, что отправляется в Referer (приватность пользователя)
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
