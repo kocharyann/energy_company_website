@@ -1,0 +1,8 @@
+config.php
+data/rate-limit.log
+data/requests.log
+data/*.log
+.DS_Store
+*.tmp
+node_modules/
+.vscode/
